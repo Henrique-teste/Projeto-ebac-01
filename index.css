@@ -12,3 +12,6 @@ form {
   width:100%;
   margin: 0 auto;
 }
+form input {
+  padding:5px;
+}
