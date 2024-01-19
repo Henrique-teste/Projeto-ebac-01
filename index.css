@@ -8,10 +8,10 @@ header{
   margin: 40px; 0;
 }
 form {
-  max-width: 400px;
+  max-width: 253px;
   width:100%;
   margin: 0 auto;
 }
 form input {
-  padding:5px;
+  padding:3px;
 }
