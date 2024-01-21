@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrosel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&family=Rubik+Burned&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
 <body>
     <header>
@@ -11,20 +14,92 @@
     </header>
     <form>
         <div class="form-ops">
-            <label>Nome completo</label>
-            <input>
-            <label>E-mail</label>
-            <input>
-            <label>Telefone</label>
-            <input>
-            <label>Cpf</label>
-            <input>
-            <label>Cep</label>
-            <input>
-            <label>Endereço completo</label>
-            <input>
+            <div class="form-campo">
+                <label>Nome completo:</label>
+                <input id="nome" type="text" placeholder="Joaquin da silva" name="nomeCompleto">
+            </div>
+
+            <div class="form-campo">
+                <label for="e-mail">E-mail:</label>
+                <input id="e-mail" type="email" placeholder=" thiago@gmail.com" name="email">
+            </div>
+
+            <div class="form-campo">
+                <label for="telefone">Telefone:</label>
+                <input id="telefone" type="tel" placeholder="(00)00000-0000" name="telefone">
+            </div>
+
+
+            <div class="form-campo">
+                <label for="cpf">Cpf:</label>
+                <input id="cpf" type="tel" placeholder="000.000.000-00" name="cpf">
+            </div>
+
+
+            <div class="form-campo">
+                <label for="cep">Cep:</label>
+                <input id="cep" type="tel"  placeholder="00000-000" name="cep">
+            </div>
+
+
+            <div class="form-campo">
+                <label for="endereço">Endereço:</label>
+                <input id="endereço" type="text" placeholder="Cidade Java, Rua  html n-1234" name="endereço">
+            </div>
+
+
+            <button >Enviar</button>
         </div>
     </form>
 </body>
     
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="./plugins/jquery.mask.min.js"></script>
+    <script src="./plugins/jquery.validate.min.js"></script>
+    <script src="./plugins/messages_pt_BR.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('form').validate({
+            rules: {
+                nomeCompleto: {
+                    required: true
+                },
+                email: {
+                    required: true
+                },
+                telefone: {
+                    required: true
+                },
+                cpf: {
+                    required: true
+                },
+                cep: {
+                    required: true
+                },
+                endereço: {
+                    required: true
+                }
+            },
+            messages: {
+                nomeCompleto: 'Por favor, insira seu nome',
+                email: 'Por favor, insira seu e-mail',
+                telefone: 'Por favor, insira seu telefone',
+                cpf:'Por favor, insira seu cpf',
+                cep:'Por favor, insira seu cep',
+                endereço:'Por favor, insira seu endereço'
+            },
+            submitHandler: function(form) {
+                alert('Você concluiu o cadastro corretamente')
+                form.reset();
+                
+            },
+            invalidHandler: function(evento, validador) {
+                let camposIncorretos = validador.numberOfInvalids();
+                if (camposIncorretos) {
+                    alert(`Existem ${camposIncorretos} campos incorretos, por favor preencha todos para cadastra-lo`)
+                }
+            }
+        })
+        })
+    </script>
 </html>
